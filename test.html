@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My MongoDB Data</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>My MongoDB Data</h1>
+  <ul id="data-list"></ul>
+
+  <script>
+    $.get('/movies', function(data) {
+      const dataList = document.getElementById('data-list');
+      data.forEach(movie => {
+        const li = document.createElement('li');
+        li.textContent = `${movie.title} (${movie.year}) - directed by ${movie.director}`;
+        dataList.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>
